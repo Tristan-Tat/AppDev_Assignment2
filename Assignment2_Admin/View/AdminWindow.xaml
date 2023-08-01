@@ -1,0 +1,46 @@
+﻿<Window x:Class="Assignment2_Admin.View.AdminWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Assignment2_Admin.View"
+        mc:Ignorable="d"
+        Title="AdminWindow" Height="450" Width="800">
+    <Grid>
+        <ListView Name="ListOfProducts" HorizontalAlignment="Left" Height="414" VerticalAlignment="Center" Width="459" d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <TextBlock Text="["></TextBlock>
+                        <TextBlock Text="{Binding Id}" Width="80" TextAlignment="Center"></TextBlock>
+                        <TextBlock Text="]" Width="20"></TextBlock>
+                        <TextBlock Text="{Binding Name}" Width="100"></TextBlock>
+                        <TextBlock Text="{Binding Weight}" Width="100" TextAlignment="Right"></TextBlock>
+                        <TextBlock Text=" kg"></TextBlock>
+                        <TextBlock Text="{Binding Price}" Width="100" TextAlignment="Right"></TextBlock>
+                        <TextBlock Text=" $"></TextBlock>
+                    </WrapPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Name="DeleteProductBtn" Content="Delete selected product" HorizontalAlignment="Left" Height="24" Margin="482,10,0,0" VerticalAlignment="Top" Width="167" Click="DeleteProductBtn_Click"/>
+        <Button x:Name="UpdateProductBtn" Content="Update selected product" HorizontalAlignment="Left" Height="24" Margin="482,145,0,0" VerticalAlignment="Top" Width="168" Click="UpdateProductBtn_Click"/>
+        <Label Content="Name:" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="500,59,0,0" VerticalAlignment="Top" Width="48"/>
+        <Label Content="Weight:" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="497,85,0,0" VerticalAlignment="Top" Width="51"/>
+        <Label Content="Price:" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="497,111,0,0" VerticalAlignment="Top" Width="51"/>
+        <TextBox Name="NameBoxUpdate" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="26" Margin="548,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158"/>
+        <TextBox Name="WeightBoxUpdate" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="26" Margin="548,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158"/>
+        <TextBox Name="PriceBoxUpdate" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="26" Margin="548,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158"/>
+        <Button x:Name="AddProductBtn" Content="Add product" HorizontalAlignment="Left" Height="24" Margin="482,317,0,0" VerticalAlignment="Top" Width="168" Click="AddProductBtn_Click"/>
+        <Label Content="Id:" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="500,208,0,0" VerticalAlignment="Top" Width="48"/>
+        <Label Content="Name:" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="497,234,0,0" VerticalAlignment="Top" Width="51"/>
+        <Label Content="Weight:" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="497,260,0,0" VerticalAlignment="Top" Width="51"/>
+        <Label Content="Price:" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="497,286,0,0" VerticalAlignment="Top" Width="51"/>
+        <TextBox Name="IdBoxCreate" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="26" Margin="548,208,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158"/>
+        <TextBox Name="NameBoxCreate" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="26" Margin="548,234,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158"/>
+        <TextBox Name="WeightBoxCreate" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="26" Margin="548,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158"/>
+        <TextBox Name="PriceBoxCreate" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="26" Margin="548,286,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158"/>
+       
+
+    </Grid>
+</Window>

@@ -47,14 +47,14 @@ namespace AppDev_Assignment2.Model
         }
 
         // DELETE
-        public static Response deleteProduct(NpgsqlConnection con, Product product)
+        public static Response deleteProduct(NpgsqlConnection con, int id)
         {
             Response response = new Response();
             try
             {
                 string Delete = "delete from products where id = @id";
                 NpgsqlCommand cmd = new NpgsqlCommand(Delete, con);
-                cmd.Parameters.AddWithValue("@id", product.Id);
+                cmd.Parameters.AddWithValue("@id", id);
 
                 con.Open() ;
                 int i = cmd.ExecuteNonQuery();
@@ -63,7 +63,7 @@ namespace AppDev_Assignment2.Model
                 {
                     response.statusCode = 200;
                     response.message = "Successfully deleted product.";
-                    response.product = product;
+                    response.product = null;
                     response.products = null;
                 }
                 else
@@ -83,16 +83,16 @@ namespace AppDev_Assignment2.Model
         }
 
         // UPDATE
-        public static Response updateProduct(NpgsqlConnection con, Product product, string name, int weight, decimal price)
+        public static Response updateProduct(NpgsqlConnection con, Product product)
         {
             Response response = new Response();
             try
             {
                 string Update = "update products set name = @name, amount = @weight, price = @price where id = @id;";
                 NpgsqlCommand cmd = new NpgsqlCommand(Update, con);
-                cmd.Parameters.AddWithValue("@name", name);
-                cmd.Parameters.AddWithValue("@weight", weight);
-                cmd.Parameters.AddWithValue("@price", price);
+                cmd.Parameters.AddWithValue("@name", product.Name);
+                cmd.Parameters.AddWithValue("@weight", product.Weight);
+                cmd.Parameters.AddWithValue("@price", product.Price);
                 cmd.Parameters.AddWithValue("@id", product.Id);
 
                 con.Open();

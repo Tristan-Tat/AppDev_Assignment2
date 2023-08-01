@@ -36,16 +36,16 @@ namespace AppDev_Assignment2.Controllers
 
         [HttpPut]
         [Route("UpdateProduct")]
-        public Response UpdateProduct(Product product, String name, int weight, decimal price)
+        public Response UpdateProduct(Product product)
         {
-            return Operations.updateProduct(connect(), product, name, weight, price);
+            return Operations.updateProduct(connect(), product);
         }
 
         [HttpDelete]
-        [Route("DeleteProduct")]
-        public Response DeleteProduct(Product product)
+        [Route("DeleteProduct/{id}")]
+        public Response DeleteProduct(int id)
         { 
-            return Operations.deleteProduct(connect(), product);
+            return Operations.deleteProduct(connect(), id);
         }
     }
 }
